@@ -10,24 +10,25 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView! // 関連付けする必要あり
     
-    var contentArray: [String] = []
+    var contentArray: [String] = [] // contentArrayがnilでない[String]になっているのに、最初にnilになっているのがダメ
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.createContents()
-        tableView.delegate = self
+        tableView.delegate = self // self( ViewControllerクラス )にUITableViewDelegateがないので、追加
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
     
     func createContents() {
         
+        // for文の書き方はつねに、for-in文
         for i in 0 ..< 10 {
             
-            contentArray.append(String(i))
+            contentArray.append(String(i)) // iはInt型なので、String型にキャスト
         }
         // ここでtableViewを更新
         tableView.reloadData()
@@ -38,11 +39,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return contentArray.count
     }
     
+    // 繰り返すcellを決めるこのメソッドが必須。
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         
-        cell?.textLabel?.text = contentArray[indexPath.row]
+        cell?.textLabel?.text = contentArray[indexPath.row] // indexPath.rowでcontentArrayの要素をcellに表示
         
         return cell!
     }
