@@ -44,6 +44,9 @@
                             <constraint firstItem="NqO-n7-m4i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dbB-QT-fUJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="NqO-n7-m4i" id="nbI-1H-SAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
