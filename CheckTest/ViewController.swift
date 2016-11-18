@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
-    @IBOutlet var tableView: UITableView! // 関連付けする必要あり
+    @IBOutlet weak var tableView: UITableView! // 関連付けする必要あり
     
-    var contentArray: [String] = [] // contentArrayがnilでない[String]になっているのに、最初にnilになっているのがダメ
+    // contentArrayがprivateだとextensionにスコープが及ばない
+    // contentArrayがnilでない[String]になっているのに、最初にnilになっているのがダメ
+    fileprivate var contentArray: [String] = []
+    
 
     override func viewDidLoad() {
         
@@ -25,14 +28,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func createContents() {
         
-        // for文の書き方はつねに、for-in文
+        // for文を10回まわして、contentArrayに0~9を順に追加
         for i in 0 ..< 10 {
             
-            contentArray.append(String(i)) // iはInt型なので、String型にキャスト
+            // appendで配列に要素を追加
+            // iはInt型なので、String型にキャスト
+            contentArray.append(String(i))
         }
-        // ここでtableViewを更新
+        // for文のスコープを向けたところでtableViewを更新
         tableView.reloadData()
     }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
