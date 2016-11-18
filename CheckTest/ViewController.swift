@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var contentArray: [String]
+    private var contentArray: [String]
 
     override func viewDidLoad() {
         
@@ -23,16 +23,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.tableFooterView = UIView()
     }
     
-    func createContents() {
+    private func createContents() {
         
         // for文を10回まわして、contentArrayに0~9を順に追加
         
         // for文のスコープを向けたところでtableViewを更新
     }
+}
+
+extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return contentArray.count
+        return contentArray.count // 発展問題
     }
+    
 }
-
