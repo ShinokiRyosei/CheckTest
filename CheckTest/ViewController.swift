@@ -25,11 +25,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func createContents() {
         
-        for var i = 0; i < 10; i++ {
-            
-            contentArray.append(i)
-        }
-        // ここでtableViewを更新
+        // for文を10回まわして、contentArrayに0~9を順に追加
+        
+        // for文のスコープを向けたところでtableViewを更新
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
