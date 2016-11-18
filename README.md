@@ -10,4 +10,5 @@
 7. `contentArray`にfor-in文のなかで、イテレータを`append`
 8. イテレータを`Int`から`String`にキャスト
 9. `tableView`を`reloadData`で更新
-10. `contentArray`のスコープを`private`から`fileprivate`もしくは、`internal`に変更
+10. `contentArray`に`= []`で値を代入
+11. `contentArray`のスコープを`private`から`fileprivate`もしくは、`internal`に変更
